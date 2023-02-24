@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import bancoJava.model.Conta;
+import bancoJava.model.ContaCorrente;
+import bancoJava.model.ContaPoupanca;
 import bancoJava.util.Cores;
-import contaCorrente.ContaCorrente;
-import contaPoupanca.ContaPoupanca;
 
 public class Menu {
 	@SuppressWarnings("unused")

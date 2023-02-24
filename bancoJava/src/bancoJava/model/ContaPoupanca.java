@@ -1,6 +1,4 @@
-package contaPoupanca;
-
-import bancoJava.model.Conta;
+package bancoJava.model;
 
 public class ContaPoupanca extends Conta{
 
