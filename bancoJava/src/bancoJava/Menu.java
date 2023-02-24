@@ -9,43 +9,12 @@ import contaCorrente.ContaCorrente;
 import contaPoupanca.ContaPoupanca;
 
 public class Menu {
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 
 		Scanner leia = new Scanner(System.in);
 
-		// Criamos o Objeto Conta c1
-		Conta c1 = new Conta(1, 123, 1, "Erica Araujo", 30000.0f);
-
-		// Visualizamos os dados da Conta c1
-		c1.visualizar();
-
-		// Alteramos o Saldo da Conta c1
-		c1.setSaldo(35000.0f);
-
-		// Visualizamos apenas o Saldo da Conta c1
-		System.out.println("\n\n" + c1.getSaldo());
-
-		// Criamos o Objeto Conta c2
-		Conta c2 = new Conta(2, 123, 1, "Dener Cardoso", 50000.0f);
-
-		// Visualizamos os dados da Conta c2
-		c2.visualizar();
-
-		// Efetuamos um Saque na Conta c2 e visualizamos o novo Saldo
-		if (c2.sacar(1000.0f))
-			System.out.println("\n\n" + c2.getSaldo());
-
-		// Efetuamos um DepÃ³sito na Conta c1
-		c1.depositar(10000.0f);
-
-		// Visualizamos os dados da Conta c1 apÃ³s o DepÃ³sito
-		c1.visualizar();
-
 		ContaCorrente c3 = new ContaCorrente(3, 123, 1, "Vitoria", 30000.0f, 1000.0f);
-
-		c3.visualizar();
-
-		c3.sacar(32000);
 
 		c3.visualizar();
 
@@ -53,38 +22,36 @@ public class Menu {
 
 		c4.visualizar();
 
-		int opcao, numero, agencia, tipo, aniversario, numeroDestino;
+		int opcao, numero, agencia = 0, tipo, aniversario, numeroDestino;
 		float saldo, limite, valor;
 		String titular;
 
 		while (true) {
 
 			System.out.println(Cores.TEXT_YELLOW + Cores.ANSI_BLACK_BACKGROUND
-					+ "*****************************************************");
-			System.out.println("                                                     ");
-			System.out.println("                BANCO DO JAVINHA                ");
-			System.out.println("                                                     ");
-			System.out.println("*****************************************************");
+					+ "*******************************");
+			System.out.println("      BANCO DO JAVINHA         ");
+			System.out.println("*******************************");
 			System.out.println(Cores.TEXT_WHITE + Cores.ANSI_BLACK_BACKGROUND
-					+ "                                                     ");
-			System.out.println("            1 - Criar Conta                          ");
-			System.out.println("            2 - Listar todas as Contas               ");
-			System.out.println("            3 - Buscar Conta por Numero              ");
-			System.out.println("            4 - Atualizar Dados da Conta             ");
-			System.out.println("            5 - Apagar Conta                         ");
-			System.out.println("            6 - Sacar                                ");
-			System.out.println("            7 - Depositar                            ");
-			System.out.println("            8 - Transferir valores entre Contas      ");
-			System.out.println("            9 - Sair                                 ");
-			System.out.println("                                                     ");
-			System.out.println("*****************************************************");
-			System.out.println("Entre com a opção desejada:                          ");
-			System.out.println("                                                     " + Cores.TEXT_RESET);
+					+ "   ");
+			System.out.println("1 - Criar Conta ");
+			System.out.println("2 - Listar todas as Contas");
+			System.out.println("3 - Buscar Conta por Numero");
+			System.out.println("4 - Atualizar Dados da Conta");
+			System.out.println("5 - Apagar Conta");
+			System.out.println("6 - Sacar");
+			System.out.println("7 - Depositar");
+			System.out.println("8 - Transferir valores entre Contas ");
+			System.out.println("9 - Sair ");
+			System.out.println("     ");
+			System.out.println("*******************************");
+			System.out.println("Entre com a opção desejada: ");
+			System.out.println("     " + Cores.TEXT_RESET);
 
 			opcao = leia.nextInt();
 
 			if (opcao == 9) {
-				System.out.println("\nBanco do Javinha - O seu Futuro começa aqui!");
+				System.out.println("\nBanco do Javinha - Pode confiar!");
 				leia.close();
 				System.exit(0);
 			}
@@ -116,7 +83,7 @@ public class Menu {
 					cc.visualizar();
 				}
 				case 2 -> {
-					System.out.println("Aniversário da Conta PoupanÃ§a: ");
+					System.out.println("Aniversário da Conta Poupança: ");
 					aniversario = leia.nextInt();
 					ContaPoupanca cp = new ContaPoupanca(0, agencia, tipo, titular, saldo, aniversario);
 					cp.visualizar();
@@ -134,7 +101,7 @@ public class Menu {
 			case 3:
 				System.out.println("Consultar dados da Conta - por número\n\n");
 
-				System.out.println("NÃºmero da Conta: ");
+				System.out.println("Número da Conta: ");
 				numero = leia.nextInt();
 
 				keyPress();
