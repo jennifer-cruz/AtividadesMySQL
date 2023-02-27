@@ -149,15 +149,13 @@ public class Menu {
 					case 1 -> {
 						System.out.println("Limite da Conta Corrente: ");
 						limite = leia.nextFloat();
-						contas.atualizar(
-								new ContaCorrente(numero, agencia, tipo, titular, saldo, limite));
+						contas.atualizar(new ContaCorrente(numero, agencia, tipo, titular, saldo, limite));
 						// cc.visualizar();
 					}
 					case 2 -> {
 						System.out.println("Aniversário da Conta Poupança: ");
 						aniversario = leia.nextInt();
-						contas.atualizar(
-								new ContaPoupanca(numero, agencia, tipo, titular, saldo, aniversario));
+						contas.atualizar(new ContaPoupanca(numero, agencia, tipo, titular, saldo, aniversario));
 						// cp.visualizar();
 					}
 					}
@@ -189,6 +187,8 @@ public class Menu {
 
 				// Chamada para o Metodo Sacar
 
+				contas.sacar(numero, valor);
+
 				keyPress();
 				break;
 			case 7:
@@ -201,6 +201,8 @@ public class Menu {
 				valor = leia.nextFloat();
 
 				// Chamada para o Metodo Depositar
+
+				contas.depositar(numero, valor);
 
 				keyPress();
 				break;
@@ -217,6 +219,8 @@ public class Menu {
 				valor = leia.nextFloat();
 
 				// Chamada para o Metodo Transferir
+
+				contas.transferir(numero, numeroDestino, valor);
 
 				keyPress();
 				break;

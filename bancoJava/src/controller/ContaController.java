@@ -5,6 +5,7 @@ import bancoJava.model.Conta;
 
 public class ContaController implements repository.ContaRepository {
 	private ArrayList<Conta> listaContas = new ArrayList<Conta>();
+	int numero = 1;
 
 	@Override
 	public void procurarPorNumero(int numero) {
@@ -52,23 +53,44 @@ public class ContaController implements repository.ContaRepository {
 
 	@Override
 	public void sacar(int numero, float valor) {
-		// TODO Auto-generated method stub
+		var conta = buscarNaColletion(numero);
+
+		if (conta != null) {
+			if (conta.sacar(valor) == true)
+				System.out.println("O saque foi efetuado com sucesso!");
+		} else
+			System.out.println("A Conta número " + numero + " não foi encontrada!");
 	}
 
 	@Override
 	public void depositar(int numero, float valor) {
-		// TODO Auto-generated method stub
+		var conta = buscarNaColletion(numero);
+
+		if (conta != null) {
+			conta.depositar(valor);
+			System.out.println("O depósito foi efetuado com sucesso!");
+		} else
+			System.out.println("A Conta número " + numero + " não foi encontrada!");
 	}
 
 	@Override
 	public void transferir(int numero, int numeroDestino, float valor) {
-		// TODO Auto-generated method stub
+		var contaOrigem = buscarNaColletion(numero);
+		var contaDestino = buscarNaColletion(numeroDestino);
+
+		if (contaOrigem != null && contaDestino != null) {
+			if (contaOrigem.sacar(valor) == true) {
+				contaDestino.depositar(valor);
+				System.out.println("A transferência foi efetuada com sucesso!");
+			}
+		} else
+			System.out.println("A Conta de Origem e/ou Destino não foram encontradas!");
 	}
 
 	// Implementar métodos auxiliares
 
 	public int gerarNumero() {
-		return listaContas.size() + 1;
+		return numero++;
 	}
 
 	public Conta buscarNaColletion(int numero) {
