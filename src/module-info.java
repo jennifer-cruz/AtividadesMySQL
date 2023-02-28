@@ -5,5 +5,5 @@
  * @author Jennifer
  *
  */
-module bancoJava {
+module beecrowd {
 }
