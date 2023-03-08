@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author Jennifer
- *
- */
-module beecrowd {
-}
